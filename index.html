@@ -3,183 +3,207 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oliveira & Portela - Consultoria Contábil</title>
   <meta name="description"
     content="Soluções contábeis inteligentes para sua empresa. Consultoria tributária, gestão empresarial e serviços contábeis com excelência.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="plugins/bxslider.css">
-  <script src="plugins/jquery.min.js"></script>
-  <script src="plugins/bxslider.min.js"></script>
-  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a3e72',
+            secondary: '#f8b400',
+            dark: '#2c3e50',
+            light: '#f8f9fa',
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'Montserrat', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-light font-sans text-dark">
   <!-- Header -->
-  <header class="cabecalho">
-    <div class="container">
-      <div class="logo">
-        <img src="imagens/logo.O&P.png" alt="Logo Oliveira & Portela">
-      </div>
-
-      <!-- Ícone de menu mobile -->
-      <div class="menu-mobile" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <!-- Menu de navegação -->
-      <nav id="menu" class="menu">
-        <ul class="menu-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="pages/sobre_nos.html">Sobre Nós</a></li>
-          <li><a href="pages/servicos.html">Serviços</a></li>
-          <li><a href="pages/contato.html">Contato</a></li>
-        </ul>
-      </nav>
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto flex items-center justify-between px-4 py-3">
+        <a href="../index.html" class="flex items-center gap-2">
+            <img src="imagens/logo.O&P.png" alt="Logo Oliveira & Portela" class="h-14">
+            <span class="font-bold text-blue-900 text-lg hidden sm:block">Oliveira & Portela</span>
+        </a>
+        <button id="menuBtn" class="sm:hidden text-2xl focus:outline-none">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav id="navMenu" class="hidden sm:flex gap-6 items-center">
+            <a href="../index.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                hover:after:w-full
+                ">Home</a>
+            <a href="pages/sobre_nos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                hover:after:w-full
+                ">Sobre Nós</a>
+            <a href="pages/servicos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                hover:after:w-full
+                ">Serviços</a>
+            <a href="pages/contato.html" class="relative font-semibold px-1 py-1 text-blue-900 hover:text-yellow-500 transition
+                after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                hover:after:w-full
+                ">Contato</a>
+            
+            </a>
+            <a href="https://wa.me/55999818143480" target="_blank" class="ml-4 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </nav>
     </div>
-  </header>
+    <div id="mobileMenu" class="sm:hidden hidden bg-white shadow-md px-4 py-2 flex flex-col gap-2">
+        <a href="../index.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Home</a>
+        <a href="pages/sobre_nos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Sobre Nós</a>
+        <a href="pages/servicos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Serviços</a>
+        <a href="pages/contato.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Contato</a>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="overlay">
-      <div class="container">
-        <h1>Excelência em Consultoria Contábil</h1>
-        <p>Soluções personalizadas para otimizar sua gestão financeira e tributária</p>
-        <div class="hero-buttons">
-          <a href="https://wa.me/559981843480" target="_blank" class="btn-whatsapp">
-            <i class="fab fa-whatsapp"></i> Fale Conosco
-          </a>
-        </div>
-      </div>
+        </a>
+        <a href="https://wa.me/55999818143480" target="_blank" class="mt-2 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+</header>
+
+  <!-- Hero -->
+  <section class="relative flex items-center justify-center h-[80vh] bg-cover bg-center" style="background-image: url('imagens/banner_01.jpg');">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative z-10 text-center text-white px-4">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-shadow">Excelência em Consultoria Contábil</h1>
+      <p class="text-xl md:text-2xl mb-8 text-shadow">Soluções personalizadas para otimizar sua gestão financeira e tributária</p>
+      <a href="pages/calculadora.html" class="inline-flex items-center gap-2 bg-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-yellow-600 transition text-lg font-bold border-2 border-yellow-400">
+        <i class="fas fa-calculator text-xl"></i> Calculadora Contábil
+      </a>
     </div>
   </section>
 
   <!-- Diferenciais -->
-  <section class="diferenciais">
-    <div class="container">
-      <div class="diferencial-item">
-        <i class="fas fa-chart-line"></i>
-        <h3>Gestão Estratégica</h3>
-        <p>Planejamento financeiro para crescimento sustentável</p>
-      </div>
-      <div class="diferencial-item">
-        <i class="fas fa-balance-scale"></i>
-        <h3>Consultoria Tributária</h3>
-        <p>Redução legal da carga tributária</p>
-      </div>
-      <div class="diferencial-item">
-        <i class="fas fa-user-tie"></i>
-        <h3>Atendimento Personalizado</h3>
-        <p>Consultores dedicados para seu negócio</p>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-primary mb-10">Nossos Diferenciais</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-chart-line text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Gestão Estratégica</h3>
+          <p>Planejamento financeiro para crescimento sustentável</p>
+        </div>
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-balance-scale text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Consultoria Tributária</h3>
+          <p>Redução legal da carga tributária</p>
+        </div>
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-user-tie text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Atendimento Personalizado</h3>
+          <p>Consultores dedicados para seu negócio</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Sobre -->
-  <section id="sobre" class="sobre">
-    <div class="container">
-      <div class="sobre-content">
-        <h2>Quem Somos</h2>
-        <p>A Oliveira & Portela oferece soluções contábeis inteligentes para empresas de todos os portes. Nossa missão é
-          entregar resultados através de dados confiáveis e atendimento personalizado.</p>
-        <ul class="sobre-lista">
-          <li><i class="fas fa-check"></i> Mais de 15 anos de experiência</li>
-          <li><i class="fas fa-check"></i> Equipe especializada</li>
-          <li><i class="fas fa-check"></i> Tecnologia de ponta</li>
+  <section class="py-16 bg-primary text-white">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-1">
+        <h2 class="text-3xl font-bold mb-4">Quem Somos</h2>
+        <p class="mb-4">A Oliveira & Portela oferece soluções contábeis inteligentes para empresas de todos os portes. Nossa missão é entregar resultados através de dados confiáveis e atendimento personalizado.</p>
+        <ul class="space-y-2">
+          <li><i class="fas fa-check text-secondary mr-2"></i>Mais de 15 anos de experiência</li>
+          <li><i class="fas fa-check text-secondary mr-2"></i>Equipe especializada</li>
+          <li><i class="fas fa-check text-secondary mr-2"></i>Tecnologia de ponta</li>
         </ul>
-        <div class="sobre-buttons">
-          <a href="pages/sobre_nos.html" target="_blank" class="btn-secondary">Sobre Nós</a>
-        </div>
+      </div>
+      <div class="flex-1 flex justify-center">
+        <img src="imagens/logo.O&P.png" alt="Equipe Oliveira & Portela" class="rounded-xl shadow-lg max-h-72 object-cover">
       </div>
     </div>
   </section>
 
   <!-- Serviços -->
-  <section id="servicos" class="servicos">
-    <div class="container">
-      <h2>Nossos Serviços</h2>
-      <div class="servicos-grid">
-        <div class="servico-item">
-          <i class="fas fa-book"></i>
-          <h3>Contabilidade Completa</h3>
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-primary mb-10">Nossos Serviços</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-book text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Contabilidade Completa</h3>
           <p>Gestão contábil completa para sua empresa</p>
         </div>
-        <!-- Adicionar mais serviços -->
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-file-invoice-dollar text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Consultoria Fiscal</h3>
+          <p>Planejamento e regularização tributária</p>
+        </div>
+        <div class="bg-light rounded-xl shadow-md p-8 flex flex-col items-center text-center hover:shadow-lg transition">
+          <i class="fas fa-users text-4xl text-secondary mb-4"></i>
+          <h3 class="font-bold text-xl mb-2">Departamento Pessoal</h3>
+          <p>Gestão de folha, admissões e obrigações trabalhistas</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Rodapé -->
-  <footer class="rodape">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Coluna 1 - Logo e sobre -->
-        <div class="footer-col">
-          <img src="imagens/logo.png" alt="Oliveira & Portela Consultoria" class="footer-logo">
-          <p class="footer-about">Oferecemos soluções contábeis completas e personalizadas para sua empresa, com
-            excelência técnica e atendimento diferenciado.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-
-        <!-- Coluna 2 - Links rápidos -->
-        <div class="footer-col">
-          <h3 class="footer-title">Links Rápidos</h3>
-          <ul class="footer-links">
-            <li><a href="index.html.html">Home</a></li>
-            <li><a href="pages/sobre_nos.html">Sobre Nós</a></li>
-            <li><a href="pages/servicos.html">Serviços</a></li>
-            <li><a href="pages/contato.html">Contato</a></li>
-            <li><a href="politica-privacidade.html">Política de Privacidade</a></li>
-          </ul>
-        </div>
-
-        <!-- Coluna 3 - Contato -->
-        <div class="footer-col">
-          <h3 href="pages/contato.html" class="footer-title">Contato</h3>
-          <ul class="footer-contact">
-            <li>
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Teresina (PI)</span>
-            </li>
-            <li>
-              <i class="fas fa-phone-alt"></i>
-              <span>99 981843480</span>
-            </li>
-            <li>
-              <i class="fas fa-envelope"></i>
-              <span>oliver030799@gmail.com</span>
-            </li>
-            <li>
-              <i class="fas fa-clock"></i>
-              <span>Segunda a Sexta<br>08:00 às 18:00</span>
-            </li>
-          </ul>
+  <footer class="bg-primary text-white py-10 mt-10">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="imagens/logo.png" alt="Oliveira & Portela Consultoria" class="h-16 mb-4">
+        <p class="mb-4">Soluções contábeis completas e personalizadas para sua empresa, com excelência técnica e atendimento diferenciado.</p>
+        <div class="flex gap-4">
+          <a href="#" aria-label="Facebook" class="hover:text-secondary text-2xl"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-secondary text-2xl"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-secondary text-2xl"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <div class="container">
-          <div class="copyright">
-            &copy; 2025 Oliveira & Portela Consultoria Contábil. Todos os direitos reservados.
-          </div>
-        </div>
+      <div>
+        <h3 class="font-bold text-xl mb-4">Links Rápidos</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-secondary">Home</a></li>
+          <li><a href="pages/sobre_nos.html" class="hover:text-secondary">Sobre Nós</a></li>
+          <li><a href="pages/servicos.html" class="hover:text-secondary">Serviços</a></li>
+          <li><a href="pages/contato.html" class="hover:text-secondary">Contato</a></li>
+          <li><a href="politica-privacidade.html" class="hover:text-secondary">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-xl mb-4">Contato</h3>
+        <ul class="space-y-2">
+          <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Principal, 1234, Sala 501, Centro, Maceió/AL</li>
+          <li><i class="fas fa-phone-alt mr-2"></i> (82) 3020-0000</li>
+          <li><i class="fas fa-envelope mr-2"></i> contato@oliveiraportela.com.br</li>
+          <li><i class="fas fa-clock mr-2"></i> Segunda a Sexta, 08:00 às 18:00</li>
+        </ul>
       </div>
     </div>
+    <div class="text-center mt-8 text-sm text-white/80">&copy; 2023 Oliveira & Portela Consultoria Contábil. Todos os direitos reservados.</div>
   </footer>
+
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.classList.toggle('active');
-    }
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   </script>
-  <script src="plugins/jquery.min.js"></script>
-  <script src="plugins/bxslider.min.js"></script>
-  <script src="js/script.js"></script>
 </body>
 
 </html>

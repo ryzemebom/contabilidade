@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-[#25D366] text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-3 px-7 py-3.5 bg-primary text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .card-servico {
+    @apply bg-white rounded-custom p-8 shadow-custom hover:shadow-custom-hover transition-custom border border-gray-100 hover:border-primary;
+  }
+
+  .hero {
+    @apply relative h-[90vh] bg-cover bg-center flex items-center text-center text-white;
+  }
+
+  .hero .overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-black/60 to-black/60;
+  }
+
+  .hero h1 {
+    @apply text-5xl font-bold mb-4 text-shadow-lg;
+  }
+
+  .hero p {
+    @apply text-2xl mb-8 text-shadow;
+  }
+
+  .footer-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+
+  .footer-links a {
+    @apply text-white/90 hover:text-white transition-all duration-300 hover:pl-2;
+  }
+
+  .social-links a {
+    @apply text-white text-xl hover:-translate-y-1 transition-all duration-300 hover:opacity-80;
+  }
+} 
