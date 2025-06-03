@@ -1,105 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, 
-maximum-scale=5.0">
-    <title>Contatos</title>
-    <meta name="descrição" content="Soluções contábeis inteligentes para sua empresa. Consultoria 
-tributária, gestão empresarial e serviços contábeis com excelência.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
-font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../plugins/bxslider.css">
-    <script src="../plugins/jquery.min.js"></script>
-    <script src="../plugins/bxslider.min.js"></script>
-    <script src="../js/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Oliveira & Portela</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body>
-    <!-- Header -->
-    <header class="cabecalho">
-        <div class="container">
-            <div class="logo">
-                <img src="../imagens/logo.O&P.png" alt="Logo Oliveira & Portela">
-            </div>
-
-            <!-- Ícone de menu mobile -->
-            <div class="menu-mobile" onclick="toggleMenu()">
+<body class="bg-gray-50 font-sans text-gray-900">
+    <header class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <a href="../index.html" class="flex items-center gap-2">
+                <img src="../imagens/logo.O&P.png" alt="Logo Oliveira & Portela" class="h-14">
+                <span class="font-bold text-blue-900 text-lg hidden sm:block">Oliveira & Portela</span>
+            </a>
+            <button id="menuBtn" class="sm:hidden text-2xl focus:outline-none">
                 <i class="fas fa-bars"></i>
-            </div>
-
-            <!-- Menu de navegação -->
-            <nav id="menu" class="menu">
-                <ul class="menu-list">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="sobre_nos.html">Sobre Nós</a></li>
-                    <li><a href="servicos.html">Serviços</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
+            </button>
+            <nav id="navMenu" class="hidden sm:flex gap-6 items-center">
+                <a href="../index.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                    after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                    hover:after:w-full
+                    ">Home</a>
+                <a href="sobre_nos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                    after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                    hover:after:w-full
+                    ">Sobre Nós</a>
+                <a href="servicos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                    after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                    hover:after:w-full
+                    ">Serviços</a>
+                <a href="contato.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition
+                    after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-yellow-500 after:transition-all after:duration-300
+                    hover:after:w-full
+                    ">Contato</a>
+                <a href="https://wa.me/55999818143480" target="_blank" class="ml-4 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </nav>
+        </div>
+        <div id="mobileMenu" class="sm:hidden hidden bg-white shadow-md px-4 py-2 flex flex-col gap-2">
+            <a href="../index.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Home</a>
+            <a href="sobre_nos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Sobre Nós</a>
+            <a href="servicos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Serviços</a>
+            <a href="contato.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Contato</a>
+            <a href="https://wa.me/55999818143480" target="_blank" class="mt-2 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </header>
 
-    <main>
-        <section class="contato container">
-            <h2>Fale Conosco</h2>
-            <p>Entre em contato com nossa equipe para tirar dúvidas, solicitar serviços ou agendar uma reunião.</p>
-
-            <div class="contato-content">
-                <form class="form-contato" action="mailto:dudu.cms2003@gmail.com" method="POST" enctype="text/plain">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required />
-
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required />
-
-                    <label for="assunto">Assunto:</label>
-                    <input type="text" id="assunto" name="assunto" required />
-
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
-                    <button type="submit" class="btn">Enviar</button>
-                </form>
-
-                <div class="info-contato">
-                    <h3>Informações</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>Teresina(PI)</p>
-                    <p><i class="fas fa-phone-alt"></i>(99) 9 81814-3480</p>
-                    <p><i class="fas fa-envelope"></i> oliver030799@gmail.com</p>
-
-                    <h3>Redes Sociais</h3>
-                    <p>
-                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a><br />
-                        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    </p>
+    <main class="pt-32 pb-16">
+        <section class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
+            <h1 class="text-3xl font-bold text-blue-900 mb-8">Fale Conosco</h1>
+            <form
+                action="https://formspree.io/f/mqabkjav"
+                method="POST"
+                class="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-8 space-y-6"
+            >
+                <input type="hidden" name="_redirect" value="https://SEUSITE.com.br/pages/obrigado.html">
+                <div>
+                    <label class="block font-semibold mb-1" for="email">Seu e-mail</label>
+                    <input type="email" name="email" id="email" required
+                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" />
                 </div>
+                <div>
+                    <label class="block font-semibold mb-1" for="message">Sua mensagem</label>
+                    <textarea name="message" id="message" rows="5" required
+                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-900 text-white font-bold px-8 py-3 rounded hover:bg-yellow-500 transition">
+                    Enviar
+                </button>
+            </form>
+            <div class="mt-8">
+                <h2 class="text-xl font-bold mb-2">Outros canais de contato</h2>
+                <ul class="space-y-2">
+                    <li><i class="fas fa-phone-alt mr-2"></i> (82) 3020-0000</li>
+                    <li><i class="fas fa-envelope mr-2"></i> contato@oliveiraportela.com.br</li>
+                    <li><i class="fab fa-whatsapp mr-2"></i> <a href="https://wa.me/558298087184" class="text-blue-900 hover:text-yellow-500">WhatsApp</a></li>
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Principal, 1234, Sala 501, Centro, Maceió/AL</li>
+                </ul>
             </div>
         </section>
     </main>
-    
-    <footer class="rodape">
-        <div class="container">
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="copyright">
-                            <p>&copy; 2025 Oliveira & Portela Consultoria
-                                Contábil. Todos os
-                                direitos reservados.</p>
-                        </div>
-                    </div>
+
+    <footer class="bg-blue-900 text-white py-10 mt-10">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <img src="../imagens/logo.png" alt="Oliveira & Portela Consultoria" class="h-16 mb-4">
+                <p class="mb-4">Soluções contábeis completas e personalizadas para sua empresa, com excelência técnica e atendimento diferenciado.</p>
+                <div class="flex gap-4">
+                    <a href="#" aria-label="Facebook" class="hover:text-yellow-500 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram" class="hover:text-yellow-500 text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="hover:text-yellow-500 text-2xl"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+            <div>
+                <h3 class="font-bold text-xl mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="../index.html" class="hover:text-yellow-500">Home</a></li>
+                    <li><a href="sobre_nos.html" class="hover:text-yellow-500">Sobre Nós</a></li>
+                    <li><a href="servicos.html" class="hover:text-yellow-500">Serviços</a></li>
+                    <li><a href="contato.html" class="hover:text-yellow-500">Contato</a></li>
+                    <li><a href="../politica-privacidade.html" class="hover:text-yellow-500">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-xl mb-4">Contato</h3>
+                <ul class="space-y-2">
+                    <li><i class="fas fa-map-marker-alt mr-2"></i> Av. Principal, 1234, Sala 501, Centro, Maceió/AL</li>
+                    <li><i class="fas fa-phone-alt mr-2"></i> (82) 3020-0000</li>
+                    <li><i class="fas fa-envelope mr-2"></i> contato@oliveiraportela.com.br</li>
+                    <li><i class="fas fa-clock mr-2"></i> Segunda a Sexta, 08:00 às 18:00</li>
+                </ul>
+            </div>
         </div>
+        <div class="text-center mt-8 text-sm text-white/80">&copy; 2023 Oliveira & Portela Consultoria Contábil. Todos os direitos reservados.</div>
     </footer>
+
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
+        // Menu mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
 </body>
-
 </html>

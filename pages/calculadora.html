@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Imposto - Oliveira & Portela</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1a3e72',
+            secondary: '#f8b400',
+            dark: '#2c3e50',
+            light: '#f8f9fa',
+          },
+          fontFamily: {
+            sans: ['Segoe UI', 'Montserrat', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .text-shadow {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+      }
+    }
+  </style>
+</head>
+<body class="bg-light font-sans text-dark">
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto flex items-center justify-between px-4 py-3">
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="imagens/logo.O&P.png" alt="Logo Oliveira & Portela" class="h-14">
+        <span class="font-bold text-blue-900 text-lg hidden sm:block">Oliveira & Portela</span>
+      </a>
+      <button id="menuBtn" class="sm:hidden text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="navMenu" class="hidden sm:flex gap-6 items-center">
+        <a href="index.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition">Home</a>
+        <a href="pages/sobre_nos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition">Sobre Nós</a>
+        <a href="pages/servicos.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition">Serviços</a>
+        <a href="pages/contato.html" class="relative font-semibold px-2 py-1 text-blue-900 hover:text-yellow-500 transition">Contato</a>
+        <a href="calculadora.html" class="ml-4 inline-flex items-center gap-2 bg-yellow-500 text-white px-4 py-2 rounded-full shadow hover:bg-yellow-600 transition">
+          <i class="fas fa-calculator"></i> Calculadora
+        </a>
+        <a href="https://wa.me/55999818143480" target="_blank" class="ml-4 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </nav>
+    </div>
+    <div id="mobileMenu" class="sm:hidden hidden bg-white shadow-md px-4 py-2 flex flex-col gap-2">
+      <a href="index.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Home</a>
+      <a href="pages/sobre_nos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Sobre Nós</a>
+      <a href="pages/servicos.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Serviços</a>
+      <a href="pages/contato.html" class="py-2 text-blue-900 font-semibold hover:text-yellow-500">Contato</a>
+      <a href="calculadora.html" class="mt-2 inline-flex items-center gap-2 bg-yellow-500 text-white px-4 py-2 rounded-full shadow hover:bg-yellow-600 transition">
+        <i class="fas fa-calculator"></i> Calculadora
+      </a>
+      <a href="https://wa.me/55999818143480" target="_blank" class="mt-2 inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full shadow hover:bg-green-600 transition">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main class="pt-32 pb-16">
+    <div class="bg-white bg-opacity-90 rounded-xl shadow-lg p-6 max-w-md mx-auto mt-8">
+      <h2 class="text-2xl font-bold text-blue-900 mb-4 text-center">Calculadora de Imposto</h2>
+      <form id="calcForm" class="space-y-4">
+        <div>
+          <label for="faturamento" class="block font-semibold mb-1">Faturamento Mensal (R$)</label>
+          <input type="number" id="faturamento" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" min="0" step="0.01" required>
+        </div>
+        <div>
+          <label for="aliquota" class="block font-semibold mb-1">Alíquota de Imposto (%)</label>
+          <input type="number" id="aliquota" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500" min="0" max="100" step="0.01" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-900 text-white font-bold px-8 py-3 rounded hover:bg-yellow-500 transition">Calcular</button>
+      </form>
+      <div id="resultado" class="mt-4 text-center text-lg font-semibold text-green-700"></div>
+    </div>
+  </main>
+
+  <footer class="bg-primary text-white py-10 mt-10">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <div>
+        <img src="imagens/logo.png" alt="Oliveira & Portela Consultoria" class="h-16 mb-4">
+        <p class="mb-4">Soluções contábeis completas e personalizadas para sua empresa, com excelência técnica e atendimento diferenciado.</p>
+        <div class="flex gap-4">
+          <a href="#" aria-label="Facebook" class="hover:text-secondary text-2xl"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram" class="hover:text-secondary text-2xl"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-secondary text-2xl"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="font-bold text-xl mb-4">Links Rápidos</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:text-secondary">Home</a></li>
+          <li><a href="pages/sobre_nos.html" class="hover:text-secondary">Sobre Nós</a></li>
+          <li><a href="pages/servicos.html" class="hover:text-secondary">Serviços</a></li>
+          <li><a href="pages/contato.html" class="hover:text-secondary">Contato</a></li>
+          <li><a href="politica-privacidade.html" class="hover:text-secondary">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-xl mb-4">Contato</h3>
+        <ul class="space-y-2">
+          <li><i class="fas fa-map-marker-alt mr-2"></i> Teresina (PI)</li>
+          <li><i class="fas fa-phone-alt mr-2"></i> (99) 9 81814-3480</li>
+          <li><i class="fas fa-envelope mr-2"></i> oliver030799@gmail.com</li>
+          <li><i class="fas fa-clock mr-2"></i> Segunda a Sexta, 08:00 às 18:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center mt-8 text-sm text-white/80">&copy; 2023 Oliveira & Portela Consultoria Contábil. Todos os direitos reservados.</div>
+  </footer>
+
+  <script>
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.getElementById('calcForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const faturamento = parseFloat(document.getElementById('faturamento').value);
+      const aliquota = parseFloat(document.getElementById('aliquota').value);
+      if (isNaN(faturamento) || isNaN(aliquota)) {
+        document.getElementById('resultado').textContent = 'Preencha todos os campos corretamente.';
+        return;
+      }
+      const imposto = faturamento * (aliquota / 100);
+      document.getElementById('resultado').textContent = `Imposto estimado: R$ ${imposto.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+    });
+  </script>
+</body>
+</html>
